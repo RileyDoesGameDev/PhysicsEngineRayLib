@@ -3,10 +3,12 @@
 #include <vector>
 #include "body.h"
 #include "Spring.h"
+#include "contact.h"
 
 
 using bodies_t = std::vector<Body*>;
 using springs_t = std::vector<Spring*>;
+using contacts_t = std::vector<Contact>;
 class Scene;
 
 
@@ -41,5 +43,6 @@ private:
 
 	bodies_t m_bodies;
 	springs_t m_springs;
+	contacts_t m_contacts;
 };
 

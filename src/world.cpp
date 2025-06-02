@@ -1,7 +1,7 @@
 #include "world.h"
 #include "body.h"
 #include "Gravitation.h"
-
+#include "collision.h"
 
 
 World::~World()
@@ -38,7 +38,7 @@ void World::Step(float dt)
 	if (!simulate) return;
 	for (auto spring : m_springs) 
 	{
-		spring->ApplyForce(0.8f, springStiffnessMultiplier);
+		spring->ApplyForce(0.5f, springStiffnessMultiplier);
 	}
 
 	if(gravitation > 0)ApplyGravitation(m_bodies, gravitation);
@@ -49,6 +49,13 @@ void World::Step(float dt)
 
 		body->ClearForce();
 	}
+	for (int i = 0; i < 10; i++)
+	{
+		m_contacts.clear();
+		CreateContacts(m_bodies, m_contacts);
+		SeparateContacts(m_contacts);
+	}
+	
 }
 
 void World::Draw(const Scene& scene)

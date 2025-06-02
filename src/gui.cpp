@@ -34,7 +34,7 @@ void GUI::Draw()
         PhysicsWindowBoxActive = !GuiWindowBox(Rectangle { anchor01.x + 0, anchor01.y + 0, 216, 376 }, "Physics");
         GuiSlider(Rectangle { anchor01.x + 8, anchor01.y + 272, 120, 16 }, NULL, NULL, & World::gravity.y, -20, 20);
         GuiLabel(Rectangle { anchor01.x + 8, anchor01.y + 256, 120, 24 }, "World Gravity");
-        GuiSliderBar(Rectangle { anchor01.x + 8, anchor01.y + 304, 120, 16 }, NULL, NULL, & GravitationSliderBarValue, 0, 1);
+        GuiSliderBar(Rectangle { anchor01.x + 8, anchor01.y + 304, 120, 16 }, NULL, NULL, & World::gravitation, 0, 1);
         GuiSliderBar(Rectangle { anchor01.x + 8, anchor01.y + 336, 120, 16 }, NULL, NULL, & World::springStiffnessMultiplier, 0, 5);
         GuiLabel(Rectangle { anchor01.x + 8, anchor01.y + 288, 120, 24 }, "Gravitation");
         GuiLabel(Rectangle { anchor01.x + 8, anchor01.y + 320, 120, 24 }, "Stiffness");

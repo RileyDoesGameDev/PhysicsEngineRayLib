@@ -41,7 +41,7 @@ void Spring::ApplyForce(const Vector2& position, Body& body, float restLength, f
 	float dampFactor = Vector2DotProduct(body.velocity, ndirection) * damping;
 	Vector2 dampingForce = ndirection * dampFactor;
 
-	body.ApplyForce(force);
+	body.ApplyForce(Vector2Negate(force));
 
 }
 
