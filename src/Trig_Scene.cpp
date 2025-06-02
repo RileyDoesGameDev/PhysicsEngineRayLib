@@ -24,9 +24,10 @@ float Vector2Length(const Vector2& v)
 }
 Vector2 Vector2Normalize(const Vector2& v) 
 {
-	float l = Vector2Length(v);
-	if (l == 0) return Vector2{ 0,0 };
-	return Vector2{ v.x / l, v.y / l };
+	//float l = Vector2Length(v);
+	//if (l == 0) return Vector2{ 0,0 };
+	//return Vector2{ v.x / l, v.y / l };
+	return Vector2{ 0,0 };
 }
 void TrigScene::Draw()
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include "raylib.h"
-
+#include "aabb.h"
 class Scene;
 
 struct Body
@@ -46,7 +46,7 @@ public:
 		color{ color }
 	{}
 
-
+	AABB GetAABB() const { return AABB{ position, { size * 2, size * 2 } }; }
 
 	void Step(float dt);
 	void Draw(const Scene& scene);

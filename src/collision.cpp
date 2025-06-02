@@ -35,8 +35,8 @@ void CreateContacts(const bodies_t& bodies, contacts_t& contacts)
 				float distance = sqrtf(distanceSqr); //<get distance from squared distance>;
 				float radius = bodyA->size + bodyB->size;// <add size of bodyA and bodyB>;
 				contact.depth = radius - distance;//<calculate penetration depth, see note above>;
-				contact.normal = direction / distance;//<normalize direction, can use normalize function or direction / distance>;
-				contact.restitution =  bodyB->restitution - bodyA->restitution;//<get average restitution of both bodies>;
+				contact.normal = Vector2Normalize(direction);//<normalize direction, can use normalize function or direction / distance>;
+				contact.restitution =  bodyA->restitution - bodyB->restitution;//<get average restitution of both bodies>;
 
 				contacts.push_back(contact);
 			}
@@ -48,7 +48,7 @@ void SeparateContacts(contacts_t& contacts)
 {
 	for (auto contact : contacts)
 	{
-		float totalInverseMass = contact.bodyA->invMass + contact.bodyB->invMass ;//<add inverse mass of both contact bodies>;
+		float totalInverseMass = contact.bodyB->invMass + contact.bodyA->invMass ;//<add inverse mass of both contact bodies>;
 		Vector2 separation = contact.normal * (contact.depth / totalInverseMass);
 		contact.bodyA->position = contact.bodyA->position + (separation * contact.bodyA->invMass);
 		contact.bodyB->position = contact.bodyB->position - (separation * contact.bodyB->invMass);
