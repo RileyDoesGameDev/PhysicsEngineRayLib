@@ -12,7 +12,7 @@ struct AABB
 
 	{}
 
-	Vector2 extents() const { return size * 0.5; }
+	Vector2 extents() const { return size ; }
 	Vector2 min() const { return center - extents(); }
 	Vector2 max() const { return center + extents(); }
 };

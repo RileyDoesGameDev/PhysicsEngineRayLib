@@ -38,7 +38,7 @@ void World::Step(float dt)
 	if (!simulate) return;
 	for (auto spring : m_springs) 
 	{
-		spring->ApplyForce(0.5f, springStiffnessMultiplier);
+		spring->ApplyForce(3.5f, springStiffnessMultiplier);
 	}
 
 	if(gravitation > 0)ApplyGravitation(m_bodies, gravitation);
@@ -54,6 +54,8 @@ void World::Step(float dt)
 		m_contacts.clear();
 		CreateContacts(m_bodies, m_contacts);
 		SeparateContacts(m_contacts);
+		ResolveContacts(m_contacts);
+		//ResolveContacts()
 	}
 	
 }

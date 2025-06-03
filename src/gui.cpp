@@ -22,7 +22,8 @@ Body* GUI::GetBodyIntersect(const Vector2& position, bodies_t& bodies,  SceneCam
 
 void GUI::Update() 
 {
-	mouseOverGUI = PhysicsWindowBoxActive && CheckCollisionPointRec(GetMousePosition(), { anchor01.x + 0, anchor01.y + 0, 280, 504 });
+	mouseOverGUI = PhysicsWindowBoxActive && CheckCollisionPointRec(GetMousePosition(), 
+        { anchor01.x + 0, anchor01.y + 0, 280, 504 });
 	if (IsKeyPressed(KEY_TAB)) PhysicsWindowBoxActive = !PhysicsWindowBoxActive;
 
 }
@@ -38,8 +39,8 @@ void GUI::Draw()
         GuiSliderBar(Rectangle { anchor01.x + 8, anchor01.y + 336, 120, 16 }, NULL, NULL, & World::springStiffnessMultiplier, 0, 5);
         GuiLabel(Rectangle { anchor01.x + 8, anchor01.y + 288, 120, 24 }, "Gravitation");
         GuiLabel(Rectangle { anchor01.x + 8, anchor01.y + 320, 120, 24 }, "Stiffness");
-        GuiToggle(Rectangle { anchor01.x + 136, anchor01.y + 264, 56, 24 }, "Simulate", & SimulateToggleActive);
-        if (GuiDropdownBox(Rectangle { anchor01.x + 16, anchor01.y + 208, 120, 24 }, "Dinamic;Static;Kenimatic", & TypeDropdownBoxActive, TypeDropdownBoxEditMode)) TypeDropdownBoxEditMode = !TypeDropdownBoxEditMode;
+        GuiToggle(Rectangle { anchor01.x + 136, anchor01.y + 264, 56, 24 }, "Simulate", &World::simulate);
+        if (GuiDropdownBox(Rectangle { anchor01.x + 16, anchor01.y + 208, 120, 24 }, "Dynamic;Kinematic;Static", & TypeDropdownBoxActive, TypeDropdownBoxEditMode)) TypeDropdownBoxEditMode = !TypeDropdownBoxEditMode;
         GuiGroupBox(Rectangle{ anchor02.x + 8, anchor02.y + 32, 184, 224 }, "Bodys");
         GuiLabel(Rectangle{ anchor02.x + 16, anchor02.y + 40, 120, 24 }, "Mass");
         GuiSliderBar(Rectangle{ anchor02.x + 16, anchor02.y + 56, 120, 16 }, NULL, NULL, &MassSliderBarValue, 0, 10);

@@ -25,7 +25,7 @@ public:
    inline static float MassSliderBarValue = 1.0f;
    inline static float SizeSliderBarValue = 1.0f;
    inline static float GravityScaleSliderBarValue = 1.0f;
-   inline static float DampingSliderBarValue = 0.0f;
+   inline static float DampingSliderBarValue = 1.0f;
    inline static float RestitutionSliderBarValue = 1.0f;
    inline static float GravitationSliderBarValue = 0.0f;
    inline static float StiffnessSliderBarValue = 0.0f;
