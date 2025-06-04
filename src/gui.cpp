@@ -23,7 +23,7 @@ Body* GUI::GetBodyIntersect(const Vector2& position, bodies_t& bodies,  SceneCam
 void GUI::Update() 
 {
 	mouseOverGUI = PhysicsWindowBoxActive && CheckCollisionPointRec(GetMousePosition(), 
-        { anchor01.x + 0, anchor01.y + 0, 280, 504 });
+        { anchor01.x + 0, anchor01.y + 0, 216, 376 });
 	if (IsKeyPressed(KEY_TAB)) PhysicsWindowBoxActive = !PhysicsWindowBoxActive;
 
 }

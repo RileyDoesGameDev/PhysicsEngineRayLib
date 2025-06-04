@@ -8,6 +8,9 @@ bool Intersects(Body* bodyA, Body* bodyB)
 
 	return (distance <= radius);
 }
+
+
+
 void CreateContacts(const bodies_t& bodies, contacts_t& contacts)
 {
 	for (int i = 0; i < bodies.size(); i++)

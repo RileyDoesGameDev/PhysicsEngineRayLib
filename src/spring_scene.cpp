@@ -78,6 +78,7 @@ void spring_scene::Update()
 			body->restitution = GUI::RestitutionSliderBarValue;
 			body->gravityScale = GUI::GravityScaleSliderBarValue;
 			body->damping = GUI::DampingSliderBarValue;
+			
 			body->ApplyForce(randomOnUnitCircle() * 10, Body::ForceMode::Velocity);
 			
 		}
